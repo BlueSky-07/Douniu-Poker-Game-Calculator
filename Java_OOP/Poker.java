@@ -94,7 +94,7 @@ class Poker {
         }
         // five small bulls
         if (sum == 10) {
-            System.out.println("FIVE BULLS");
+            System.out.println("FIVE SMALL BULLS");
             return true;
         }
         return false;
