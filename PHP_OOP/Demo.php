@@ -1,6 +1,7 @@
 <?php
 include 'Poker.php';
-$joker = new Poker();
-$joker->gameStart($_SERVER['QUERY_STRING']);
-//$joker -> gameStart('12345');
+$game = new Poker();
+$game->gameStart($_SERVER['QUERY_STRING']);
+//$game->gameStart('12345');
+echo $game->toJSON();
 ?>

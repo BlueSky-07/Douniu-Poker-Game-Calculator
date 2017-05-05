@@ -30,7 +30,7 @@ Judge | Example
 
 参数不足需重新输入5个参数
 
-## C_POP 版本
+## C 版本
 
 #### 运行样例：
 
@@ -56,13 +56,108 @@ Jqa13
 
 #### DEMO
 
-*C_POP/Poker_C.exe* (gcc 4.9.2, Windows 10 x64)
+*C/Poker.exe* (gcc 4.9.2, Windows 10 x64)
+
+## Java 版本
+
+#### 用法
+
+```
+Poker pokers = new Poker();
+pokers.gameStart();
+```
+
+#### DEMO
+
+*Java/Demo.java* (JDK 1.8.0_121)
+
+## Java_MVC 版本
+
+#### 用法
+
+```
+View game = new View();
+while (true) {
+    game.menu();
+    game.bonus();
+}
+```
+
+#### DEMO
+
+*Java_MVC/Demo.java* (JDK 1.8.0_121)
+
+## JavaScript 版本
+
+#### 用法
+
+HTML head 需引用 *Poker.js* ：
+```
+<script type="text/javascript" src="Poker.js"></script>
+```
+HTML body 需设置以下两个标签和参数：
+```
+<input type="text" id="in">
+<button onclick="run()">OK</button>
+<p id="result"></p>
+```
+结果将会展示在：
+```
+<p id="result"></p>
+```
+
+#### DEMO
+
+*JavaScript/Poker.htm* (Chrome 58.0.3029.96 (64-bit), Windows 10 x64)
+
+## PHP_OOP 版本
+
+#### 用法
+
+php 中 include *Poker.php* ：
+```
+include 'Poker.php';
+```
+创建对象：
+```
+$game = new Poker();
+```
+传入参数并计算：
+```
+$game->gameStart($_SERVER['QUERY_STRING']);
+$game->gameStart('12345');
+```
+返回 JSON
+```
+echo $games->toJSON();
+```
+
+#### JSON 返回值
+
+errCode | errText | judgeText
+--- | --- | ---
+400 | "unknown error" | NULL
+401 | "empty pokers" | NULL
+402 | "not enough pokers" | NULL
+0 | NULL | *judgeText_JSON*
+
+#### judgeText JSON 返回值
+
+type | value | toSum | toLeft
+--- | --- | --- | ---
+"BOMB" | which four-of-a-kind | NULL | NULL
+"FIVE BULLS" | NULL | NULL | NULL | NULL
+"FIVE SMALL BULLS" | NULL | NULL | NULL | NULL
+"BULLS" | value of bull | 3 of pokers to sum | 2 of pokers then left
+
+#### DEMO
+*PHP_OOP/Demo.php* (CentOS 7.2 x64, Nginx 1.10.0, PHP 5.5.36)
 
 ## PHP_POP 版本
 
 #### 用法
 
-GET *http(s)://your.domain.site/Poker.php?{参数}*
+GET *http(s)://your.web.site/Poker.php?{参数}*
 
 返回 JSON
 
@@ -88,43 +183,7 @@ type | value | toSum | toLeft
 
 *PHP_POP/Poker.htm*  (CentOS 7.2 x64, Nginx 1.10.0, PHP 5.5.36)
 
-## JavaScript_POP 版本
-
-#### 用法
-
-HTML head 需引用 *Poker.js* ：
-```
-<script type="text/javascript" src="Poker.js"></script>
-```
-HTML body 需设置以下两个标签和参数：
-```
-<input type="text" id="in">
-<button onclick="run()">OK</button>
-<p id="result"></p>
-```
-结果将会展示在：
-```
-<p id="result"></p>
-```
-
-#### DEMO
-
-*JavaScript_POP/Poker.htm* (Chrome 57.0.2987.98 (64-bit), Windows 10 x64)
-
-## Java_OOP 版本
-
-#### 用法
-
-```
-Poker pokers = new Poker();
-pokers.gameStart();
-```
-
-#### DEMO
-
-*Java_OOP/Demo.java* (JDK 1.8.0_121)
-
-## Python_POP 版本
+## Python 版本
 
 #### 用法
 
@@ -134,29 +193,4 @@ python3 Poker.py
 ```
 
 #### DEMO
-*Python_POP/Poker.py* (Python 3.6, Windows 10 x64)
-
-## PHP_OOP 版本
-
-#### 用法
-
-php 中include *Poker.php* ：
-```
-include 'Poker.php';
-```
-创建对象：
-```
-$joker = new Poker();
-```
-传入参数并计算：
-```
-$joker->gameStart($_SERVER['QUERY_STRING']);
-$joker -> gameStart('12345');
-```
-返回 JSON
-```
-echo $joker->toJSON();
-```
-
-#### DEMO
-*PHP_OOP/Demo.php* (CentOS 7.2 x64, Nginx 1.10.0, PHP 5.5.36)
+*Python/Poker.py* (Python 3.6, Windows 10 x64)
